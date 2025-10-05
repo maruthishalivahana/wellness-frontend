@@ -1,8 +1,8 @@
 import { Provider } from "react-redux";
 import { store } from "./utils/appStore";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
-import Home from './Components/Home';
+import Home from "./Components/Home";
+import Body from './Components/Body';
 import { AboutUs } from './Components/AboutUs';
 import PatientInfo from './Components/PatientInfo';
 import Specialities from './Components/Specialities';
@@ -14,9 +14,9 @@ function App() {
     <Provider store={store}>
       <BrowserRouter>
         <Routes>
-          {/* Home is the layout wrapper with Navbar + Footer */}
-          <Route path="/" element={<Home />}>
-            <Route index element={<AboutUs />} />            {/* default page */}
+          {/* Layout wrapper with Navbar + Footer */}
+          <Route path="/" element={<Body />}>
+            <Route index element={<Home />} />          {/* Default homepage */}
             <Route path="aboutus" element={<AboutUs />} />
             <Route path="ourdoctors" element={<OurDoctors />} />
             <Route path="patientinfo" element={<PatientInfo />} />
