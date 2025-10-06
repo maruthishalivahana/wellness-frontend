@@ -17,10 +17,10 @@ export const Footer = () => {
     ];
 
     const socialLinks = [
-        { Icon: Facebook, href: '#' },
-        { Icon: Instagram, href: '#' },
+        { Icon: Facebook, href: 'facebook.com/WellnessHospitalsOfficial' },
+        { Icon: Instagram, href: 'instagram.com/wellnesshospital' },
         { Icon: Linkedin, href: '#' },
-        { Icon: Youtube, href: '#' }
+        { Icon: Youtube, href: 'www.youtube.com/@WellnessHospitals' }
     ];
 
     return (
