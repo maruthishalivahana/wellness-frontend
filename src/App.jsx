@@ -8,6 +8,8 @@ import PatientInfo from './Components/PatientInfo';
 import Specialities from './Components/Specialities';
 import KnowledgeCenter from './Components/KnowledgeCenter';
 import OurDoctors from './Components/OurDoctors';
+import DoctorAddingForm from './Components/DoctorAddingForm';
+
 
 function App() {
   return (
@@ -22,6 +24,7 @@ function App() {
             <Route path="patientinfo" element={<PatientInfo />} />
             <Route path="specialities" element={<Specialities />} />
             <Route path="knowledgecenter" element={<KnowledgeCenter />} />
+            <Route path="addDoctorForm" element={<DoctorAddingForm />} />
           </Route>
         </Routes>
       </BrowserRouter>

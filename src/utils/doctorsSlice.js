@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const doctorSlice = createSlice({
-    name: 'doctors',
+    name: 'doctor',
     initialState: {
         allDoctors: [],     // all doctors fetched from backend
         filteredDoctors: [], // filtered by location

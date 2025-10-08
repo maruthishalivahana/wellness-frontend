@@ -32,7 +32,7 @@ export const Navbar = () => {
         { to: "/patientinfo", text: "Patient Info", Icon: ClipboardList },
         { to: "/aboutus", text: "About Us", Icon: Info },
         { to: "/knowledgecenter", text: "Knowledge Center", Icon: BookOpen },
-        { to: "/VisitNXPCenters", text: "VisitNXPCenters", Icon: BookOpen }
+        { to: "/addDoctorForm", text: "VisitNXPCenters", Icon: BookOpen }
     ];
 
     return (
