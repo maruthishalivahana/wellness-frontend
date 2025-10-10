@@ -9,6 +9,7 @@ import Specialities from './Components/Specialities';
 import KnowledgeCenter from './Components/KnowledgeCenter';
 import OurDoctors from './Components/OurDoctors';
 import DoctorAddingForm from './Components/DoctorAddingForm';
+import DoctorProfile from "./Components/DoctorProfile";
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
             <Route path="specialities" element={<Specialities />} />
             <Route path="knowledgecenter" element={<KnowledgeCenter />} />
             <Route path="addDoctorForm" element={<DoctorAddingForm />} />
+            <Route path="/doctors/profile/:doctorId" element={<DoctorProfile />} />
           </Route>
         </Routes>
       </BrowserRouter>

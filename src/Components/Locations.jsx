@@ -3,6 +3,7 @@ import { MapPin, Navigation } from 'lucide-react';
 
 const locations = [
     {
+
         name: 'Ameerpet - DK Road',
         address: '7-1-79, AB8, DK Road, Swathi Avenue, Ameerpet, Hyderabad, Telangana – 500016',
         mapLink: 'https://www.google.com/maps/search/?api=1&query=Wellness+Hospitals+Ameerpet+DK+Road+Hyderabad',
