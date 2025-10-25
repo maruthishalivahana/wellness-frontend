@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+
 import {
     Stethoscope,
     X,
@@ -33,7 +34,8 @@ export const Navbar = () => {
         { to: "/patientinfo", text: "Patient Info", Icon: ClipboardList },
         { to: "/aboutus", text: "About Us", Icon: Info },
         { to: "/knowledgecenter", text: "Knowledge Center", Icon: BookOpen },
-        { to: "/addDoctorForm", text: "VisitNXPCenters", Icon: BookOpen }
+
+        { to: '/admin/login', text: 'Admin', Icon: Stethoscope }
     ];
 
     return (
@@ -77,6 +79,16 @@ export const Navbar = () => {
                                 </li>
                             ))}
                         </ul>
+
+                        {/* <Link to="/visitNXPCenters" onClick={showComingSoon}>
+                            <button
+                                className="flex items-center gap-2 text-white font-semibold py-2 px-5 rounded-full shadow-md transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#223366]/40"
+                                style={{ backgroundColor: '#223366' }}
+                            >
+                                Visit - NXPCenters
+                                <CalendarPlus size={20} />
+                            </button>
+                        </Link> */}
                         <Link to="/appointment" onClick={showComingSoon}>
                             <button
                                 className="flex items-center gap-2 text-white font-semibold py-2 px-5 rounded-full shadow-md transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#223366]/40"

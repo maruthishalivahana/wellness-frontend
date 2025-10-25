@@ -13,8 +13,7 @@ import KnowledgeCenter from './Components/KnowledgeCenter';
 import OurDoctors from './Components/OurDoctors';
 import DoctorAddingForm from './Components/DoctorAddingForm';
 import DoctorProfile from "./Components/DoctorProfile";
-
-// Wrapper component to prefetch doctors inside Provider context
+import AdminAuth from './Components/AdminAuth';
 function AppContent() {
   const dispatch = useDispatch();
   const allDoctors = useSelector((state) => state.doctor?.allDoctors || []);
@@ -36,9 +35,9 @@ function AppContent() {
   return (
     <BrowserRouter>
       <Routes>
-        {/* Layout wrapper with Navbar + Footer */}
+
         <Route path="/" element={<Body />}>
-          <Route index element={<Home />} />          {/* Default homepage */}
+          <Route index element={<Home />} />
           <Route path="aboutus" element={<AboutUs />} />
           <Route path="ourdoctors" element={<OurDoctors />} />
           <Route path="patientinfo" element={<PatientInfo />} />
@@ -46,6 +45,7 @@ function AppContent() {
           <Route path="knowledgecenter" element={<KnowledgeCenter />} />
           <Route path="addDoctorForm" element={<DoctorAddingForm />} />
           <Route path="/doctors/profile/:doctorId" element={<DoctorProfile />} />
+          <Route path="/admin/login" element={<AdminAuth />} />
         </Route>
       </Routes>
     </BrowserRouter>
