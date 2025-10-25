@@ -3,10 +3,10 @@ import { Heart, BrainCircuit, Award, Stethoscope, ShieldCheck, Cpu, Users, Clock
 import { motion } from 'framer-motion';
 import { showComingSoon } from '../utils/comingSoon';
 
-// --- Main Page Component ---
+
 export const AboutUs = () => {
 
-    // Animation Variants for Framer Motion
+
     const fadeIn = {
         hidden: { opacity: 0, y: 20 },
         visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
