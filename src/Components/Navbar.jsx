@@ -14,6 +14,7 @@ import {
     ArrowRight
 } from 'lucide-react';
 import Logo from '../assets/wellness_logo.png'
+import { showComingSoon } from '../utils/comingSoon';
 
 export const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -76,7 +77,7 @@ export const Navbar = () => {
                                 </li>
                             ))}
                         </ul>
-                        <Link to="/appointment">
+                        <Link to="/appointment" onClick={showComingSoon}>
                             <button
                                 className="flex items-center gap-2 text-white font-semibold py-2 px-5 rounded-full shadow-md transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#223366]/40"
                                 style={{ backgroundColor: '#223366' }}
@@ -110,7 +111,11 @@ export const Navbar = () => {
 
                     ))}
                     <li className="mt-4 w-full px-4">
-                        <Link to="/appointment" className="block w-full" onClick={() => setIsOpen(false)}>
+                        <Link
+                            to="/appointment"
+                            className="block w-full"
+                            onClick={(e) => { showComingSoon(e); setIsOpen(false); }}
+                        >
                             <button
                                 className="flex items-center justify-center gap-3 text-white font-semibold w-full py-3 px-4 rounded-lg shadow-md"
                                 style={{ backgroundColor: '#223366' }}

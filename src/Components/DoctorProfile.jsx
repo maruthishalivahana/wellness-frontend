@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Stethoscope, GraduationCap, Briefcase, ChevronRight, Phone, Calendar } from 'lucide-react';
+import { showComingSoon } from '../utils/comingSoon';
 
 const DoctorProfile = () => {
     const { doctorId } = useParams(); // Get the doctor's ID from the URL
@@ -82,7 +83,7 @@ const DoctorProfile = () => {
                         <div className="bg-white p-6 rounded-xl shadow-lg border border-gray-200">
                             <h3 className="text-xl font-bold text-gray-800 mb-4">Book an Appointment</h3>
                             <p className="text-gray-600 mb-6">Schedule a consultation with Dr. {doctor.name.split(' ').pop()}.</p>
-                            <button className="w-full flex items-center justify-center px-6 py-3 bg-blue-600 text-white font-semibold rounded-full shadow-md hover:bg-blue-700 transition-all duration-300">
+                            <button onClick={showComingSoon} className="w-full flex items-center justify-center px-6 py-3 bg-blue-600 text-white font-semibold rounded-full shadow-md hover:bg-blue-700 transition-all duration-300">
                                 <Calendar className="w-5 h-5 mr-2" />
                                 Schedule Now
                             </button>

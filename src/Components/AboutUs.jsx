@@ -1,6 +1,7 @@
 import React from 'react';
 import { Heart, BrainCircuit, Award, Stethoscope, ShieldCheck, Cpu, Users, Clock } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { showComingSoon } from '../utils/comingSoon';
 
 // --- Main Page Component ---
 export const AboutUs = () => {
@@ -184,7 +185,7 @@ export const AboutUs = () => {
                     <div className="container mx-auto text-center px-6">
                         <h2 className="text-3xl font-bold mb-4">Join Our Mission to Heal Lives</h2>
                         <p className="text-lg mb-8">Whether you are a patient seeking care or a professional looking to make a difference, we welcome you.</p>
-                        <button className="bg-white text-blue-700 font-bold py-3 px-8 rounded-full hover:bg-blue-100 transition-colors duration-300 shadow-lg">
+                        <button onClick={showComingSoon} className="bg-white text-blue-700 font-bold py-3 px-8 rounded-full hover:bg-blue-100 transition-colors duration-300 shadow-lg">
                             Book an Appointment
                         </button>
                     </div>

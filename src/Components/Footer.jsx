@@ -1,6 +1,7 @@
 import React from 'react';
 import wellnessLogo from '../assets/wellness_logo.png'; // Make sure the path to your logo is correct
 import { Phone, Mail, MapPin, ChevronsRight, Facebook, Instagram, Linkedin, Youtube } from 'lucide-react';
+import { showComingSoon } from '../utils/comingSoon';
 
 export const Footer = () => {
     const quickLinks = [
@@ -79,7 +80,7 @@ export const Footer = () => {
                                 </li>
                             ))}
                         </ul>
-                        <a href="/appointment">
+                        <a href="/appointment" onClick={showComingSoon}>
                             <button className="bg-white text-[#223366] font-bold py-3 px-6 rounded-lg w-full hover:bg-gray-200 transition-colors duration-300">
                                 Book an Appointment
                             </button>
@@ -93,8 +94,8 @@ export const Footer = () => {
                         <form className="flex">
                             <input
                                 type="email"
-                                placeholder="Your Email"
-                                className="w-full rounded-l-md px-4 py-2 text-gray-800 outline-none"
+                                placeholder="Your Email "
+                                className="w-full rounded-l-md px-4 py-2 text-white  border border-gray-300 outline-none placeholder:text-white"
                             />
                             <button type="submit" className="bg-blue-500 text-white px-4 rounded-r-md hover:bg-blue-600 transition-colors">
                                 Go

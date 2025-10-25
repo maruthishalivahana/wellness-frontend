@@ -8,9 +8,10 @@ import { ChevronDown } from 'lucide-react';
 const OurDoctors = () => {
     const dispatch = useDispatch();
     const { allDoctors = [], filteredDoctors = [] } = useSelector((store) => store.doctor || {});
+
+
     const [error, setError] = useState(null);
 
-    // ✅ New: Get unique locations from doctors list
     const locations = [...new Set(allDoctors.map((doc) => doc.location))];
 
     useEffect(() => {
@@ -27,7 +28,7 @@ const OurDoctors = () => {
         if (allDoctors.length === 0) fetchAndSetDoctors();
     }, [allDoctors.length, dispatch]);
 
-    // ✅ Handle location change
+
     const handleLocationChange = (e) => {
         const location = e.target.value;
         dispatch(filterByLocation(location));
@@ -40,15 +41,14 @@ const OurDoctors = () => {
                     Meet Our Specialists
                 </h2>
 
-                {/* ✅ Dropdown Filter */}
 
 
                 <div className="mb-10 flex justify-center">
-                    {/* Use a relative container to position the custom arrow */}
+
                     <div className="relative w-full max-w-xs cursor-pointer">
                         <select
                             onChange={handleLocationChange}
-                            // appearance-none hides the default browser arrow
+
                             className="w-full appearance-none  cursor-pointer rounded-lg border border-gray-300 bg-white px-5 py-3 pr-10 font-semibold text-gray-800 shadow-sm transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500 hover:border-gray-400"
                         >
                             <option value="">All Locations</option>
@@ -58,15 +58,13 @@ const OurDoctors = () => {
                                 </option>
                             ))}
                         </select>
-                        {/* Custom arrow icon */}
+
                         <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-gray-500">
                             <ChevronDown size={20} />
                         </div>
                     </div>
                 </div>
 
-
-                {/* Doctors List */}
                 {error ? (
                     <p className="text-red-500">{error}</p>
                 ) : (

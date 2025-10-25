@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { HeartPulse, Brain, Bone, Stethoscope, Baby, Microscope, Search, Smile } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useSelector } from 'react-redux';
+import { showComingSoon } from '../utils/comingSoon';
+import { setDoctors, filterByLocation } from '../utils/doctorsSlice';
 
-// --- Dummy Data ---
+
 
 const specialitiesData = [
     {
@@ -42,35 +45,16 @@ const specialitiesData = [
     },
 ];
 
-const doctorsData = [
-    {
-        photo: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16e?q=80&w=2070&auto=format&fit=crop',
-        name: 'Dr. Evelyn Reed',
-        designation: 'Chief Cardiologist',
-    },
-    {
-        photo: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=2070&auto=format&fit=crop',
-        name: 'Dr. Marcus Chen',
-        designation: 'Lead Neurologist',
-    },
-    {
-        photo: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?q=80&w=1964&auto=format&fit=crop',
-        name: 'Dr. Olivia Grant',
-        designation: 'Head of Orthopedics',
-    },
-    {
-        photo: 'https://plus.unsplash.com/premium_photo-1661764878654-3d0851280e82?q=80&w=1974&auto=format&fit=crop',
-        name: 'Dr. Julian Bennett',
-        designation: 'Senior Dermatologist',
-    },
-];
-
-
-// --- Main Component ---
 
 const Specialities = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const [filteredSpecialities, setFilteredSpecialities] = useState(specialitiesData);
+    const doctors = useSelector((state) => state.doctor?.allDoctors || []);
+
+    const formatDepartment = (dept) =>
+        dept ? dept.replace(/-/g, ' ').replace(/\b\w/g, (l) => l.toUpperCase()) : 'Specialist';
+    const { allDoctors = [], filteredDoctors = [] } = useSelector((store) => store.doctor || {});
+    console.log(allDoctors)
 
     useEffect(() => {
         const results = specialitiesData.filter(speciality =>
@@ -157,20 +141,26 @@ const Specialities = () => {
                 <section className="mt-24">
                     <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">Meet Our Experts</h2>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                        {doctorsData.map((doctor, index) => (
-                            <div key={index} className="bg-white rounded-lg shadow-lg text-center p-6 transform hover:-translate-y-2 transition-transform duration-300">
-                                <img
-                                    src={doctor.photo}
-                                    alt={`Photo of ${doctor.name}`}
-                                    className="w-32 h-32 rounded-full mx-auto mb-4 object-cover border-4 border-blue-100"
-                                />
-                                <h4 className="text-lg font-semibold text-gray-900">{doctor.name}</h4>
-                                <p className="text-blue-500 mb-4">{doctor.designation}</p>
-                                <button className="w-full bg-blue-600 text-white font-bold py-2 px-4 rounded-full hover:bg-blue-700 transition-colors duration-300">
-                                    Book Appointment
-                                </button>
+                        {doctors && doctors.length > 0 ? (
+                            doctors.slice(0, 4).map((doctor) => (
+                                <div key={doctor._id || doctor.name} className="bg-white rounded-lg shadow-lg text-center p-6 transform hover:-translate-y-2 transition-transform duration-300">
+                                    <img
+                                        src={doctor.image?.url || 'https://placehold.co/128x128/E0E7FF/3B82F6?text=Dr'}
+                                        alt={`Photo of ${doctor.name || 'Doctor'}`}
+                                        className="w-32 h-32 rounded-full mx-auto mb-4 object-cover border-4 border-blue-100"
+                                    />
+                                    <h4 className="text-lg font-semibold text-gray-900">{doctor.name || 'Doctor Name'}</h4>
+                                    <p className="text-blue-500 mb-4">{formatDepartment(doctor.department)}</p>
+                                    <button onClick={showComingSoon} className="w-full bg-blue-600 text-white font-bold py-2 px-4 rounded-full hover:bg-blue-700 transition-colors duration-300">
+                                        Book Appointment
+                                    </button>
+                                </div>
+                            ))
+                        ) : (
+                            <div className="col-span-1 sm:col-span-2 lg:col-span-4 text-center py-8 text-gray-500">
+                                No doctors available right now.
                             </div>
-                        ))}
+                        )}
                     </div>
                 </section>
             </main>
@@ -185,7 +175,7 @@ const Specialities = () => {
                         Talk to our medical advisor today. We are here to help you.
                     </p>
                     <div className="flex justify-center gap-4 flex-wrap">
-                        <button className="bg-blue-600 text-white font-bold py-3 px-8 rounded-full hover:bg-blue-700 transition-colors duration-300">
+                        <button onClick={showComingSoon} className="bg-blue-600 text-white font-bold py-3 px-8 rounded-full hover:bg-blue-700 transition-colors duration-300">
                             Book Appointment
                         </button>
                         <button className="bg-transparent border-2 border-gray-700 text-gray-800 font-bold py-3 px-8 rounded-full hover:bg-gray-700 hover:text-white transition-colors duration-300">

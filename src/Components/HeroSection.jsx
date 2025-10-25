@@ -1,6 +1,7 @@
 import React from 'react';
 import { MoveRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { showComingSoon } from '../utils/comingSoon';
 
 // You can replace this with the actual path to your image
 import heroImage from '../assets/wellness_hospital_baner.png'
@@ -23,6 +24,7 @@ export const HeroSection = () => {
                     </p>
                     <a
                         href="/appointment"
+                        onClick={showComingSoon}
                         className="mt-8 inline-flex items-center justify-center px-8 py-4 font-semibold text-white rounded-lg shadow-lg transition-transform duration-300 ease-in-out transform hover:scale-105"
                         style={{ backgroundColor: '#223366' }}
                     >
